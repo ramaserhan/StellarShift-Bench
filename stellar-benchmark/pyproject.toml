@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stellar-benchmark"
+version = "1.2.3"
+description = "A reproducible stellar-spectra reliability case study and prespecified quality-gated cross-survey benchmark protocol."
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+data = ["astroquery>=0.4.7", "astropy>=6.0", "requests>=2.31"]
+desi = ["astropy>=6.0", "requests>=2.31"]
+dev = ["pytest>=7.4", "astropy>=6.0", "ipython>=8.0"]
+
+[project.scripts]
+stellar-benchmark = "stellar_benchmark.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["stellar_benchmark*"]

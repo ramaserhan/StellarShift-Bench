@@ -1,0 +1,40 @@
+{
+  "hard_physical_bounds": {
+    "teff": [
+      2500.0,
+      50000.0
+    ],
+    "logg": [
+      -1.0,
+      6.5
+    ],
+    "feh": [
+      -6.0,
+      1.5
+    ]
+  },
+  "method_summary": [
+    {
+      "method": "coral_unlabeled",
+      "n": 1088,
+      "hard_bound_violation_fraction": 0.0
+    },
+    {
+      "method": "source_only",
+      "n": 1088,
+      "hard_bound_violation_fraction": 0.0
+    },
+    {
+      "method": "source_plus_target_retrained",
+      "n": 1088,
+      "hard_bound_violation_fraction": 0.0
+    }
+  ],
+  "status": "bounds_evaluated_isochrone_not_evaluated",
+  "isochrone_reason": "No cited isochrone grid was configured.",
+  "isochrone_required_columns": [
+    "teff",
+    "logg",
+    "feh"
+  ]
+}

@@ -1,0 +1,7 @@
+stage,rows,removed_at_stage,evidence
+DESI DR1 primary stellar rows queried,4662192,0,"Frozen main/bright and other-primary SQL queries"
+APOGEE DR12 matches within 1.5 arcsec,1827,4660365,"apogee_dr12_desi_dr1_crossmatch.csv"
+APOGEE ASPCAPFLAG equals zero,1629,198,"Version-pinned APOGEE DR12 quality flag"
+LAMOST source APOGEE_ID overlap removed,1576,53,"Source-disjoint frozen target selection"
+SPARCL spectra found and retrieved,1576,0,"sparcl_find_target_rv_response.json"
+Redrock warning zero and spectral contract passed,1555,21,"Processed DESI target contract"

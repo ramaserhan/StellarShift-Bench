@@ -1,0 +1,72 @@
+{
+  "experiment": {
+    "name": "desi_dr1_r_arm_snr",
+    "input_npz": "data/processed/desi_r_raw.npz",
+    "output_dir": "results/desi_case_study",
+    "random_state": 42,
+    "valid_fraction_min": 0.95,
+    "snr_min": 10.0,
+    "teff_range": [
+      3200.0,
+      8000.0
+    ],
+    "logg_range": [
+      2.0,
+      5.5
+    ],
+    "feh_range": [
+      -3.0,
+      0.5
+    ],
+    "teff_error_max": 150.0,
+    "logg_error_max": 0.2,
+    "feh_error_max": 0.3,
+    "source_train_fraction": 0.6,
+    "source_holdout_fraction": 0.2,
+    "target_adaptation_fraction": 0.1,
+    "target_evaluation_fraction": 0.1,
+    "wavelength_min": 5800.0,
+    "wavelength_max": 7580.0,
+    "continuum_window": 301,
+    "continuum_polyorder": 3,
+    "outlier_percentiles": [
+      0.01,
+      99.99
+    ],
+    "pca_components": 64,
+    "n_estimators": 400,
+    "min_samples_leaf": 2,
+    "max_features": 0.7,
+    "noise_factors": [
+      1.25,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "noise_seed_start": 2026,
+    "noise_seed_count": 10,
+    "adaptation_noise_factor": 2.0,
+    "adaptation_noise_seed": 2026,
+    "augmentation_views": 2,
+    "augmentation_seed_start": 4042
+  },
+  "split_unit": "TARGETID",
+  "reference_labels": "DESI DR1 Stellar Reddening VAC RVSpecFit RVTAB",
+  "label_caveat": "RVSpecFit labels and their formal errors are pipeline-derived reference labels, not independent astrophysical ground truth.",
+  "shift_caveat": "The S/N domain shift is a controlled Gaussian perturbation of real DESI spectra, not a naturally observed cross-survey shift.",
+  "partition_rows": {
+    "source_train": 540,
+    "source_holdout": 180,
+    "target_adaptation": 90,
+    "target_evaluation": 91
+  },
+  "excluded_rows": 139,
+  "pca_explained_variance": 0.515905499458313,
+  "train_derived_outlier_bounds": [
+    -0.9367077414512635,
+    0.7106438726424991
+  ],
+  "clean_extreme_pixels_masked": 387,
+  "augmentation_strategy": "two deterministic noisy views with clean and augmented domains receiving equal total sample weight"
+}

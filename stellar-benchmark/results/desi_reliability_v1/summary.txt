@@ -1,0 +1,21 @@
+=== StellarShift-Bench v1.1 DESI reliability audit ===
+2x-noise TEFF MAE: 159.19 K (95% nested-bootstrap CI 132.55 to 186.65).
+Change from clean: 29.8% (CI 19.4% to 43.6%).
+Source-calibrated nominal 90% TEFF coverage: clean 0.923; 2x noise 0.859; 3x noise 0.773.
+
+Adaptation ladder at the fixed 2x target shift:
+                      method        mae  mae_change_vs_source_percent  wilcoxon_p_vs_source
+                 source_only 171.061518                      0.000000              1.000000
+             noise_augmented 156.675544                     -8.409825              0.002699
+             coral_unlabeled 171.530777                      0.274322              0.730592
+source_plus_target_retrained 168.390517                     -1.561428              0.836938
+
+Paired Teff MAE effects versus source-only (negative is better):
+noise augmentation: -14.386 K (95% CI -23.819 to -5.042 K)
+CORAL: +0.469 K (95% CI -11.416 to +12.069 K; inconclusive, not equivalent)
+source plus 90 target labels: -2.671 K (95% CI -9.126 to +3.680 K; inconclusive)
+
+Prospective design: 344 evaluation stars for 80% power to detect a 5% CORAL Teff effect.
+Formal-label sensitivity: Teff change median +28.1% (95% CI +18.0% to +41.6%); this is not independent label validation.
+
+Caveat: the executed shift remains controlled Gaussian S/N degradation on DESI R-arm spectra. Cross-arm and cross-survey conclusions require new data runs.

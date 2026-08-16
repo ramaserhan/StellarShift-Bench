@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using this metadata."
+title: "StellarShift-Bench"
+version: 1.2.3
+date-released: 2026-08-16
+authors:
+  - family-names: Serhan
+    given-names: Rama
+license: MIT
+keywords:
+  - stellar spectroscopy
+  - domain shift
+  - machine learning
+  - DESI
+  - uncertainty calibration
+  - out-of-distribution detection

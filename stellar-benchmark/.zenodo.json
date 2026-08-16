@@ -1,0 +1,36 @@
+{
+  "title": "StellarShift-Bench: Reliability Under Domain Shift in Stellar Spectroscopy",
+  "description": "A reproducible benchmark for stellar-parameter accuracy, uncertainty calibration, domain adaptation, out-of-distribution detection, selective prediction, subgroup support, and physical plausibility under measurement-domain shift. Version 1.2.3 contains both a controlled DESI S/N reliability study and an executed, prespecified quality-gated LAMOST DR2 to DESI DR1 transfer on a shared APOGEE DR12 label scale, with paired adaptation effects, label-budget trials, calibration audits, support-overlap sensitivity, formal reference-label-error propagation, an atomic deterministic release build, and a portable Colab workflow with isolated SPARCL dependencies.",
+  "upload_type": "software",
+  "publication_date": "2026-08-16",
+  "version": "1.2.3",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Serhan, Rama"
+    }
+  ],
+  "keywords": [
+    "stellar spectroscopy",
+    "domain shift",
+    "machine learning",
+    "DESI",
+    "LAMOST",
+    "conformal prediction",
+    "out-of-distribution detection",
+    "domain adaptation",
+    "reproducible research"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://doi.org/10.3847/1538-4357/836/1/5",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://doi.org/10.48550/arXiv.2602.15021",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

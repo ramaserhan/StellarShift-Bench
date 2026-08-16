@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "criteria": [
+    {
+      "criterion": "shared_reference_label_scale_declared",
+      "observed": "APOGEE_DR12_ASPCAP_v603_calibrated_TEFF_LOGG_PARAM_M_H | APOGEE_DR12_ASPCAP_v603_calibrated_TEFF_LOGG_PARAM_M_H",
+      "required": "same exact, version-pinned scale for both surveys",
+      "passed": true
+    },
+    {
+      "criterion": "source_train_stars",
+      "observed": 1032,
+      "required": 1000,
+      "passed": true
+    },
+    {
+      "criterion": "source_holdout_stars",
+      "observed": 259,
+      "required": 200,
+      "passed": true
+    },
+    {
+      "criterion": "target_adaptation_stars",
+      "observed": 467,
+      "required": 100,
+      "passed": true
+    },
+    {
+      "criterion": "target_evaluation_stars",
+      "observed": 1088,
+      "required": 350,
+      "passed": true
+    },
+    {
+      "criterion": "target_evaluation_giants_logg_lt_3p5",
+      "observed": 1024,
+      "required": 50,
+      "passed": true
+    },
+    {
+      "criterion": "target_evaluation_metal_poor_feh_lt_minus_1p5",
+      "observed": 55,
+      "required": 50,
+      "passed": true
+    }
+  ],
+  "blockers": [],
+  "status_if_failed": "engineering_run_only_no_publishable_cross_survey_claim",
+  "target_evaluation_minimum_basis": "rounded above the 344-star prospective requirement estimated for detecting a 5% Teff MAE effect for CORAL at 80% power in the DESI case study"
+}

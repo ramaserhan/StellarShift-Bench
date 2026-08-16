@@ -1,0 +1,155 @@
+{
+  "version": "1.2.0",
+  "experiment": {
+    "name": "lamost_dr2_to_desi_dr1_apogee_dr12_v1",
+    "source_npz": "data/processed/lamost_apogee_dr12.npz",
+    "target_npz": "data/processed/desi_apogee_dr12.npz",
+    "output_dir": "results/lamost_dr2_to_desi_dr1_apogee_dr12",
+    "source_survey": "LAMOST_DR2_HO2017",
+    "target_survey": "DESI_DR1_SPARCL",
+    "source_label_provenance": "Ho et al. 2017 public high-SNR LAMOST tutorial set with direct APOGEE DR12 ASPCAP v603 labels",
+    "target_label_provenance": "APOGEE DR12 allStar-v603 crossmatched at 1.5 arcsec to primary DESI DR1 SPARCL spectra",
+    "source_label_scale": "APOGEE_DR12_ASPCAP_v603_calibrated_TEFF_LOGG_PARAM_M_H",
+    "target_label_scale": "APOGEE_DR12_ASPCAP_v603_calibrated_TEFF_LOGG_PARAM_M_H",
+    "source_resolving_power": 1800.0,
+    "target_resolving_power": 2500.0,
+    "common_resolving_power": 1800.0,
+    "wavelength_min": 4000.0,
+    "wavelength_max": 5500.0,
+    "log_wavelength_step": 0.0002,
+    "valid_fraction_min": 0.95,
+    "source_holdout_fraction": 0.2,
+    "target_adaptation_fraction": 0.3,
+    "random_state": 42,
+    "continuum_window": 101,
+    "continuum_polyorder": 3,
+    "outlier_percentiles": [
+      0.01,
+      99.99
+    ],
+    "pca_components": 64,
+    "n_estimators": 400,
+    "min_samples_leaf": 2,
+    "max_features": 0.7,
+    "conformal_alpha": 0.1,
+    "coral_regularization": 0.001,
+    "label_budgets": [
+      5,
+      10,
+      25,
+      50,
+      100
+    ],
+    "label_budget_repeats": 10,
+    "bootstrap_replicates": 1000,
+    "bootstrap_confidence": 0.95,
+    "ood_coverages": [
+      1.0,
+      0.9,
+      0.8,
+      0.7,
+      0.5
+    ],
+    "subgroup_minimum": 20,
+    "ablation_models": [
+      "ridge",
+      "extra_trees",
+      "mlp"
+    ],
+    "ablation_estimators": 150,
+    "isochrone_grid_csv": null,
+    "isochrone_threshold_quantile": 0.99,
+    "enforce_publication_gate": true,
+    "publication_min_source_train": 1000,
+    "publication_min_source_holdout": 200,
+    "publication_min_target_adaptation": 100,
+    "publication_min_target_evaluation": 350,
+    "publication_min_giants": 50,
+    "publication_min_metal_poor": 50
+  },
+  "shift_type": "real_cross_survey_optical_spectra",
+  "source_sha256": "eaed1ab42b770548bfd07899e201bebb015bb5e5e7bee1704192b46736a7522c",
+  "target_sha256": "65655cd50bbe26d55064a96601502d2c88b5e9ff772a1000557a770441dc8133",
+  "source_rows": 1291,
+  "target_rows": 1555,
+  "partitions": {
+    "source_train": 1032,
+    "source_holdout": 259,
+    "target_adaptation": 467,
+    "target_evaluation": 1088
+  },
+  "cross_survey_overlap_removed_from_source": 0,
+  "shared_wavelength_pixels": 1593,
+  "shared_wavelength_range_angstrom": [
+    4000.0,
+    5499.704486787261
+  ],
+  "resolution_matching": "Gaussian line-spread approximation on a constant-log-lambda grid; the pipeline refuses spectral sharpening.",
+  "target_access_taxonomy": {
+    "source_only": "no target data during fitting",
+    "unlabeled_target_features": "target-adaptation spectra, no labels",
+    "labeled_target_calibration": "target-adaptation labels only for intervals",
+    "labeled_target": "target-adaptation spectra and labels for fitting"
+  },
+  "pca_explained_variance": 0.9431672692298889,
+  "publication_gate": {
+    "passed": true,
+    "criteria": [
+      {
+        "criterion": "shared_reference_label_scale_declared",
+        "observed": "APOGEE_DR12_ASPCAP_v603_calibrated_TEFF_LOGG_PARAM_M_H | APOGEE_DR12_ASPCAP_v603_calibrated_TEFF_LOGG_PARAM_M_H",
+        "required": "same exact, version-pinned scale for both surveys",
+        "passed": true
+      },
+      {
+        "criterion": "source_train_stars",
+        "observed": 1032,
+        "required": 1000,
+        "passed": true
+      },
+      {
+        "criterion": "source_holdout_stars",
+        "observed": 259,
+        "required": 200,
+        "passed": true
+      },
+      {
+        "criterion": "target_adaptation_stars",
+        "observed": 467,
+        "required": 100,
+        "passed": true
+      },
+      {
+        "criterion": "target_evaluation_stars",
+        "observed": 1088,
+        "required": 350,
+        "passed": true
+      },
+      {
+        "criterion": "target_evaluation_giants_logg_lt_3p5",
+        "observed": 1024,
+        "required": 50,
+        "passed": true
+      },
+      {
+        "criterion": "target_evaluation_metal_poor_feh_lt_minus_1p5",
+        "observed": 55,
+        "required": 50,
+        "passed": true
+      }
+    ],
+    "blockers": [],
+    "status_if_failed": "engineering_run_only_no_publishable_cross_survey_claim",
+    "target_evaluation_minimum_basis": "rounded above the 344-star prospective requirement estimated for detecting a 5% Teff MAE effect for CORAL at 80% power in the DESI case study"
+  },
+  "reference_label_errors": {
+    "available": true,
+    "assumption": "independent_unbiased_gaussian_formal_errors",
+    "scope": "sensitivity_not_independent_validation"
+  },
+  "label_semantics": {
+    "teff": "APOGEE DR12 calibrated TEFF",
+    "logg": "APOGEE DR12 calibrated LOGG",
+    "feh": "legacy contract slot containing APOGEE DR12 calibrated PARAM_M_H global metallicity, not elemental FE_H"
+  }
+}

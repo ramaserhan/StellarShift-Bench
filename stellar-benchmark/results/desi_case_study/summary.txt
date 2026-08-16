@@ -1,0 +1,35 @@
+=== desi_dr1_r_arm_snr ===
+Selected spectra: 901 / 1040
+PCA explained variance: 0.5159
+
+=== Clean held-out performance ===
+             evaluation           model target   n      bias        mae       rmse    scatter       r2
+   source_holdout_clean     source_only   teff 180 45.963406 130.409506 185.699481 134.705233 0.957349
+   source_holdout_clean     source_only   logg 180  0.056795   0.247723   0.362919   0.235093 0.576513
+   source_holdout_clean     source_only    feh 180  0.040914   0.206191   0.309671   0.215952 0.692051
+   source_holdout_clean noise_augmented   teff 180 44.957243 128.889056 189.044102 130.570668 0.955799
+   source_holdout_clean noise_augmented   logg 180  0.060752   0.246188   0.355436   0.235403 0.593797
+   source_holdout_clean noise_augmented    feh 180  0.047768   0.206350   0.311275   0.213006 0.688853
+target_evaluation_clean     source_only   teff  91 20.217456 122.626162 179.879933 131.569451 0.962871
+target_evaluation_clean     source_only   logg  91  0.008265   0.216495   0.323582   0.237721 0.445599
+target_evaluation_clean     source_only    feh  91  0.021165   0.207615   0.273249   0.238921 0.673872
+target_evaluation_clean noise_augmented   teff  91 28.489866 120.393894 176.529187 116.995814 0.964242
+target_evaluation_clean noise_augmented   logg  91  0.016388   0.216832   0.327264   0.227638 0.432911
+target_evaluation_clean noise_augmented    feh  91  0.026884   0.204701   0.268907   0.238389 0.684155
+
+=== Source-only robustness at 2x noise ===
+      model target  noise_factor  approximate_median_snr   mae_mean  mae_std  rmse_mean  rmse_std  r2_mean   r2_std  mae_change_percent_mean  mae_change_percent_std  significant_runs  mae_vs_source_percent_mean  mae_vs_source_percent_std  significant_improvement_runs
+source_only    feh           2.0               11.353559   0.214774 0.007767   0.283397  0.009253 0.648862 0.023089                 3.447880                3.741251                 0                         0.0                        0.0                             0
+source_only   logg           2.0               11.353559   0.225576 0.007822   0.334751  0.016788 0.405323 0.058871                 4.194930                3.613010                 1                         0.0                        0.0                             0
+source_only   teff           2.0               11.353559 159.190368 6.850881 221.769127 11.951319 0.943418 0.006171                29.817623                5.586802                10                         0.0                        0.0                             0
+
+=== Source+target retraining comparison ===
+               evaluation target  mae_before  mae_after  mae_change_percent  rmse_before  rmse_after  bias_before  bias_after  wilcoxon_p  significant_at_0.05
+     source_holdout_clean   teff  130.409506 130.216977           -0.147634   185.699481  183.617590    45.963406   40.671024    0.940787                False
+     source_holdout_clean   logg    0.247723   0.246741           -0.396500     0.362919    0.357782     0.056795    0.056871    0.958986                False
+     source_holdout_clean    feh    0.206191   0.210295            1.990469     0.309671    0.309888     0.040914    0.041872    0.039274                 True
+target_evaluation_shifted   teff  171.061518 168.390517           -1.561428   239.123587  232.447476    -0.676469   -0.358084    0.836938                False
+target_evaluation_shifted   logg    0.220111   0.220393            0.127881     0.338692    0.325130     0.002273   -0.010095    0.529148                False
+target_evaluation_shifted    feh    0.210036   0.213383            1.593426     0.278444    0.283531     0.000693   -0.000647    0.437897                False
+
+Interpretation: this is a controlled Gaussian S/N perturbation on real DESI spectra. RVSpecFit outputs are reference labels, not independent ground truth. Negative or nonsignificant adaptation results are retained.

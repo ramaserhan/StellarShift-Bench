@@ -1,0 +1,12 @@
+subgroup_dimension,subgroup,n,metric_status,minimum_required
+temperature_regime,cool_<4000,26,reported,8
+temperature_regime,mid_4000_6000,55,reported,8
+temperature_regime,hot_>6000,10,reported,8
+gravity_regime,dwarf_>=3.5,88,reported,8
+gravity_regime,giant_<3.5,3,insufficient_support,8
+metallicity_regime,metal_poor_<-1.5,5,insufficient_support,8
+metallicity_regime,intermediate,44,reported,8
+metallicity_regime,metal_rich_>=-0.5,42,reported,8
+snr_regime,snr_<15,26,reported,8
+snr_regime,snr_15_30,41,reported,8
+snr_regime,snr_>=30,24,reported,8

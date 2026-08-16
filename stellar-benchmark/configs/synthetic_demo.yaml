@@ -1,0 +1,8 @@
+name: synthetic_smoke
+random_state: 42
+model_type: gbm
+n_bootstrap: 3
+source_rows: 600
+target_rows: 300
+target_adaptation_fraction: 0.30
+output_dir: results/synthetic_smoke

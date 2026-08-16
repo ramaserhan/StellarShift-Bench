@@ -1,0 +1,37 @@
+name: desi_coadd_to_single_epoch_v1
+source_npz: data/processed/desi_coadd_shared.npz
+target_npz: data/processed/desi_single_epoch_shared.npz
+output_dir: results/desi_coadd_to_single_epoch
+source_survey: DESI_coadd
+target_survey: DESI_single_epoch
+source_label_provenance: DESI MWS VAC, version pinned in data manifest
+target_label_provenance: same star-level catalog, evaluation objects disjoint from source
+source_resolving_power: 2500.0
+target_resolving_power: 2500.0
+common_resolving_power: 2500.0
+wavelength_min: 4000.0
+wavelength_max: 5500.0
+log_wavelength_step: 0.0002
+valid_fraction_min: 0.95
+source_holdout_fraction: 0.20
+target_adaptation_fraction: 0.30
+random_state: 42
+continuum_window: 101
+continuum_polyorder: 3
+outlier_percentiles: [0.01, 99.99]
+pca_components: 64
+n_estimators: 400
+min_samples_leaf: 2
+max_features: 0.70
+conformal_alpha: 0.10
+coral_regularization: 0.001
+label_budgets: [5, 10, 25, 50, 100]
+label_budget_repeats: 10
+bootstrap_replicates: 1000
+bootstrap_confidence: 0.95
+ood_coverages: [1.0, 0.9, 0.8, 0.7, 0.5]
+subgroup_minimum: 20
+ablation_models: [ridge, extra_trees, mlp]
+ablation_estimators: 150
+isochrone_grid_csv: null
+isochrone_threshold_quantile: 0.99

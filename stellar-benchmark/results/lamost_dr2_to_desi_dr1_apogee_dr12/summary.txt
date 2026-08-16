@@ -1,0 +1,45 @@
+=== LAMOST_DR2_HO2017 to DESI_DR1_SPARCL cross-survey audit ===
+Partitions: {'source_train': 1032, 'source_holdout': 259, 'target_adaptation': 467, 'target_evaluation': 1088}
+Shared optical grid: 1593 pixels; R=1800.
+
+Transfer metrics:
+                      method target        mae        r2  mae_change_vs_source_percent
+                 source_only   teff 109.414750  0.656280                      0.000000
+                 source_only   logg   0.259528  0.557855                      0.000000
+                 source_only    feh   0.249618  0.220363                      0.000000
+             coral_unlabeled   teff 113.453190  0.645068                      3.690947
+             coral_unlabeled   logg   0.263670  0.613131                      1.596268
+             coral_unlabeled    feh   0.393267 -0.182249                     57.547813
+source_plus_target_retrained   teff  78.396709  0.798741                    -28.349049
+source_plus_target_retrained   logg   0.153299  0.847263                    -40.931415
+source_plus_target_retrained    feh   0.099858  0.899706                    -59.995747
+
+Calibration:
+                      method             calibration_source target  coverage  mean_width
+                 source_only source_holdout_method_specific   teff  0.678309  232.949214
+                 source_only source_holdout_method_specific   logg  0.751838    0.586592
+                 source_only source_holdout_method_specific    feh  0.590074    0.293048
+             coral_unlabeled source_holdout_method_specific   teff  0.595588  222.340589
+             coral_unlabeled source_holdout_method_specific   logg  0.704963    0.591932
+             coral_unlabeled source_holdout_method_specific    feh  0.159926    0.275680
+source_plus_target_retrained source_holdout_method_specific   teff  0.799632  223.943422
+source_plus_target_retrained source_holdout_method_specific   logg  0.854779    0.547246
+source_plus_target_retrained source_holdout_method_specific    feh  0.816176    0.313914
+                 source_only              target_adaptation   teff  0.902574  484.958656
+                 source_only              target_adaptation   logg  0.901654    1.264207
+                 source_only              target_adaptation    feh  0.898897    1.395305
+             coral_unlabeled              target_adaptation   teff  0.900735  459.248544
+             coral_unlabeled              target_adaptation   logg  0.893382    1.136701
+             coral_unlabeled              target_adaptation    feh  0.889706    1.586722
+
+Star-bootstrap MAE intervals:
+                      method target   estimate   ci_lower   ci_upper
+             coral_unlabeled    feh   0.393267   0.371295   0.412362
+             coral_unlabeled   logg   0.263670   0.247045   0.280610
+             coral_unlabeled   teff 113.453190 107.876098 119.825218
+                 source_only    feh   0.249618   0.228163   0.269512
+                 source_only   logg   0.259528   0.240385   0.278723
+                 source_only   teff 109.414750 103.247322 115.406129
+source_plus_target_retrained    feh   0.099858   0.093012   0.106753
+source_plus_target_retrained   logg   0.153299   0.142255   0.164413
+source_plus_target_retrained   teff  78.396709  73.267609  83.574144

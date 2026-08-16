@@ -1,0 +1,119 @@
+{
+  "manifest_version": "1.0",
+  "created_utc": "2026-08-16",
+  "benchmark_release": "1.2.3",
+  "scientific_design": {
+    "source": "LAMOST DR2 high-S/N optical spectra from the Ho et al. (2017) The Cannon tutorial",
+    "target": "DESI DR1 primary stellar coadds retrieved through NOIRLab SPARCL",
+    "reference_label_scale": "APOGEE_DR12_ASPCAP_v603_calibrated_TEFF_LOGG_PARAM_M_H",
+    "label_columns": ["TEFF", "LOGG", "PARAM_M_H"],
+    "label_semantics": "The benchmark's legacy feh slot contains calibrated PARAM_M_H global metallicity [M/H], not elemental FE_H.",
+    "canonical_object_id": "APOGEE_ID",
+    "crossmatch_radius_arcsec": 1.5,
+    "duplicate_rule": "choose the lowest-quality-score/highest-SNR APOGEE row per APOGEE_ID, then its nearest DESI primary spectrum; resolve any shared DESI target by separation, APOGEE quality score, and APOGEE S/N",
+    "source_target_overlap_rule": "remove every Ho-tutorial APOGEE_ID from the DESI target selection before retrieval; the experiment runner also removes any remaining target APOGEE_ID from source before splitting",
+    "analysis_wavelength_angstrom": [4000.0, 5500.0],
+    "pregrid_wavelength_angstrom": [3900.0, 5600.0],
+    "pregrid_step_angstrom": 0.8,
+    "common_resolving_power": 1800.0,
+    "resolution_model": "Gaussian line-spread approximation; no spectral sharpening",
+    "target_redshift_quality": "DESI SPARCL/Redrock redshift_warning == 0"
+  },
+  "catalog_queries": {
+    "service": "NOIRLab Astro Data Lab",
+    "table": "desi_dr1.zpix",
+    "selection": "zcat_primary = true and spectype = 'STAR'",
+    "returned_columns": [
+      "targetid",
+      "mean_fiber_ra",
+      "mean_fiber_dec",
+      "survey",
+      "program",
+      "healpix",
+      "tsnr2_gpbbright",
+      "tsnr2_gpbbackup",
+      "coadd_exptime"
+    ],
+    "raw_primary_stars": 4662192,
+    "apogee_desi_matches_within_1p5_arcsec": 1827,
+    "apogee_aspcapflag_zero": 1629,
+    "source_overlap_removed_before_sparcl": 53,
+    "selected_for_sparcl": 1576,
+    "sparcl_found_and_retrieved": 1576,
+    "target_contract_after_redshift_warning_cut": 1555
+  },
+  "sources": [
+    {
+      "name": "Ho2017_LAMOST_high_snr_spectra",
+      "url": "https://annayqho.github.io/TheCannon/_downloads/lamost_spectra.tar.gz",
+      "local_name": "lamost_spectra_ho2017_tutorial.tar.gz",
+      "sha256": "6dd1476597dc9900268090ee4413e814e81bc9655fe3db9df27c0ce945558c9f",
+      "rows_or_files": 1387
+    },
+    {
+      "name": "Ho2017_APOGEE_DR12_labels",
+      "url": "https://annayqho.github.io/TheCannon/_downloads/lamost_labels.fits",
+      "local_name": "lamost_labels_apogee_dr12.fits",
+      "sha256": "993f5197aa5e9a1367ccc4871bc32af96f7ef10a995d4a44060f44ae157221a7",
+      "rows_or_files": 1387
+    },
+    {
+      "name": "APOGEE_DR12_allStar_v603",
+      "url": "https://data.sdss3.org/sas/dr12/apogee/spectro/redux/r5/allStar-v603.fits",
+      "local_name": "apogee_dr12_allStar-v603.fits",
+      "sha256": "c7010203583201dbae29268212d17614d29047dd6bce89d1983676dfdd3e8851",
+      "rows_or_files": 163278
+    },
+    {
+      "name": "DESI_DR1_primary_stars_main_bright_query",
+      "service": "NOIRLab Astro Data Lab desi_dr1.zpix",
+      "local_name": "desi_dr1_main_bright_stars.csv",
+      "sha256": "4ce88234ac88e0033ccbf79cf552f67f07b8eb58d29fb56463363c97e9ac0277",
+      "rows_or_files": 2483642
+    },
+    {
+      "name": "DESI_DR1_primary_stars_other_query",
+      "service": "NOIRLab Astro Data Lab desi_dr1.zpix",
+      "local_name": "desi_dr1_other_primary_stars.csv",
+      "sha256": "497ed0b34bc41badca5c2dfc625754f43ef2ae6bd0ae25e62191a07652947890",
+      "rows_or_files": 2178550
+    }
+  ],
+  "frozen_intermediates": [
+    {
+      "path": "data/acquisition_logs/apogee_dr12_desi_dr1_crossmatch.csv",
+      "sha256": "46c648528e3854ac90aaf5710535783a786d365a964111d337b349b79f74c4b1",
+      "rows": 1827
+    },
+    {
+      "path": "data/acquisition_logs/apogee_dr12_desi_dr1_target_selected.csv",
+      "sha256": "f766bb02ac8e00fff01ea87e9a7cf80ac8ab2c61d8bc442465509c1eaa716d92",
+      "rows": 1576
+    },
+    {
+      "path": "data/acquisition_logs/apogee_dr12_desi_dr1_selection_flow.csv",
+      "sha256": "309990e1e9a4301452c17fd5433a9f8a8d86e3920a590da78b1e6b9c1d2c1995",
+      "rows": 6
+    },
+    {
+      "path": "data/acquisition_logs/sparcl_find_target_rv_response.json",
+      "sha256": "360a8fbfae4e32a6f5706e1c4011c1f16111402924022e5dba9f2acf83abcd13",
+      "rows": 1576
+    }
+  ],
+  "processed_contracts": [
+    {
+      "path": "data/processed/lamost_apogee_dr12.npz",
+      "sha256": "eaed1ab42b770548bfd07899e201bebb015bb5e5e7bee1704192b46736a7522c",
+      "rows": 1309,
+      "analysis_window_quality_rows": 1291
+    },
+    {
+      "path": "data/processed/desi_apogee_dr12.npz",
+      "sha256": "65655cd50bbe26d55064a96601502d2c88b5e9ff772a1000557a770441dc8133",
+      "rows": 1555,
+      "analysis_window_quality_rows": 1555
+    }
+  ],
+  "redistribution": "Raw survey spectra and processed spectral arrays are not included in the public source archive. This manifest, frozen selections, retrieval metadata, builders, hashes, and result evidence are included for reproducibility."
+}

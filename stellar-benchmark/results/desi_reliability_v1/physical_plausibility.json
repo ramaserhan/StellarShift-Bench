@@ -1,0 +1,63 @@
+{
+  "hard_physical_bounds": {
+    "teff": [
+      2500.0,
+      50000.0
+    ],
+    "logg": [
+      -1.0,
+      6.5
+    ],
+    "feh": [
+      -6.0,
+      1.5
+    ]
+  },
+  "benchmark_domain_bounds": {
+    "teff": [
+      3200.0,
+      8000.0
+    ],
+    "logg": [
+      2.0,
+      5.5
+    ],
+    "feh": [
+      -3.0,
+      0.5
+    ]
+  },
+  "method_summary": [
+    {
+      "method": "coral_unlabeled",
+      "n": 91,
+      "hard_bound_violation_fraction": 0.0,
+      "benchmark_domain_exit_fraction": 0.0
+    },
+    {
+      "method": "noise_augmented",
+      "n": 91,
+      "hard_bound_violation_fraction": 0.0,
+      "benchmark_domain_exit_fraction": 0.0
+    },
+    {
+      "method": "source_only",
+      "n": 91,
+      "hard_bound_violation_fraction": 0.0,
+      "benchmark_domain_exit_fraction": 0.0
+    },
+    {
+      "method": "source_plus_target_retrained",
+      "n": 91,
+      "hard_bound_violation_fraction": 0.0,
+      "benchmark_domain_exit_fraction": 0.0
+    }
+  ],
+  "status": "bounds_evaluated_isochrone_not_evaluated",
+  "isochrone_reason": "No cited isochrone grid was configured; empirical rarity is not mislabeled as physical impossibility.",
+  "isochrone_required_columns": [
+    "teff",
+    "logg",
+    "feh"
+  ]
+}
