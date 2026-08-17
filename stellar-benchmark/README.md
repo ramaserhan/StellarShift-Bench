@@ -116,7 +116,7 @@ The executed run passed with 1,032 / 259 / 467 / 1,088, including 1,024 giants
 and 55 metal-poor stars.
 
 For a runnable tour, open
-`examples/StellarShift_v1.2.3_Instant_Results.ipynb`. The report, one-page brief,
+`examples/StellarShift_Instant_Results.ipynb`. The report, one-page brief,
 results, configuration, per-star predictions, and manifests are also archived
 in the evidence bundle.
 
@@ -128,7 +128,7 @@ python scripts/build_release.py
 
 The command regenerates the notebook and PDFs twice to prove byte stability,
 creates both ZIPs atomically with fixed metadata, verifies archive-member
-identity, and writes `SHA256SUMS-v1.2.3.txt` only after every check passes.
+identity, and writes `SHA256SUMS.txt` only after every check passes.
 
 ## Why this is a benchmark rather than a model demo
 
